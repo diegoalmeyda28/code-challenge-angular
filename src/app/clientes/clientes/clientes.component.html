@@ -1,0 +1,55 @@
+<div class="clientes-container">
+    <h2>Gestión de Clientes</h2>
+  
+    <!-- Formulario para agregar o editar cliente -->
+    <div class="form-container">
+      <h3>{{ editIndex !== null ? 'Editar Cliente' : 'Agregar Nuevo Cliente' }}</h3>
+      <form (ngSubmit)="addCliente()">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="newCliente.nombre" name="nombre" placeholder="Nombre" required>
+        </div>
+        <div class="form-group">
+          <input type="email" [(ngModel)]="newCliente.email" name="email" placeholder="Correo Electrónico" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" [(ngModel)]="newCliente.telefono" name="telefono" placeholder="Teléfono" required>
+        </div>
+        <div class="form-group">
+          <input type="text" [(ngModel)]="newCliente.direccion" name="direccion" placeholder="Dirección" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit">{{ editIndex !== null ? 'Actualizar' : 'Agregar' }}</button>
+          <button type="button" (click)="resetForm()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Buscador -->
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchClientes()" placeholder="Buscar por nombre o correo">
+    </div>
+  
+    <!-- Lista de clientes con paginación -->
+    <div class="clients-list">
+      <h3>Lista de Clientes</h3>
+      <ul>
+        <li *ngFor="let cliente of paginatedClientes; let i = index" class="client-item">
+          <div class="client-details">
+            <strong>{{ cliente.nombre }}</strong> - {{ cliente.email }} - {{ cliente.telefono }} - {{ cliente.direccion }}
+          </div>
+          <div class="client-actions">
+            <button (click)="editCliente(i)">Editar</button>
+            <button (click)="deleteCliente(i)">Eliminar</button>
+          </div>
+        </li>
+      </ul>
+  
+      <!-- Controles de paginación -->
+      <div class="pagination-controls">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+        <span>Página {{ currentPage }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage * itemsPerPage >= clientesFiltrados.length">Siguiente</button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,133 @@
+/* Estilos generales */
+.products-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de filtros */
+.filter-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.filter-container select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Contenedor de ordenar */
+.sort-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.sort-container button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sort-container button:hover {
+  background-color: #45a049;
+}
+
+/* Formulario para agregar producto */
+.form-container {
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+form {
+  display: grid;
+  grid-gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group input, .form-group select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para la lista de productos */
+.products-list {
+  margin-top: 30px;
+}
+
+.products-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-item .product-details {
+  font-size: 16px;
+}
+
+.product-item .product-actions button {
+  padding: 6px 12px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.product-item .product-actions button:hover {
+  background-color: #e64a19;
+}
