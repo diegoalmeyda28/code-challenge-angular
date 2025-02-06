@@ -22,10 +22,7 @@ export class HeaderComponent {
   }
 
   logout() {
-    // Eliminar la sesión guardada
     localStorage.removeItem('isLoggedIn');
-    
-    // Redirigir al login
     this.router.navigate(['/login']);
   }
 }

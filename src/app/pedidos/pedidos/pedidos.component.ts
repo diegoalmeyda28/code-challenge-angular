@@ -26,7 +26,6 @@ export class PedidosComponent implements OnInit{
   filtroCliente: string = '';
   ordenarAscendente: boolean = true;
 
-   // Paginación
    currentPage: number = 1;
    itemsPerPage: number = 5;
  
@@ -88,7 +87,6 @@ export class PedidosComponent implements OnInit{
      this.editIndex = null;
    }
  
-   // Métodos de paginación
    get paginatedPedidos() {
      const start = (this.currentPage - 1) * this.itemsPerPage;
      return this.pedidosFiltrados.slice(start, start + this.itemsPerPage);

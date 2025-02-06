@@ -20,7 +20,6 @@ export class ClientesComponent {
   editIndex: number | null = null;
   searchTerm: string = '';
 
-  // Paginación
   currentPage: number = 1;
   itemsPerPage: number = 5;
   
@@ -80,7 +79,6 @@ export class ClientesComponent {
     this.editIndex = null;
   }
   
-  // Métodos de paginación
   get paginatedClientes() {
     const start = (this.currentPage - 1) * this.itemsPerPage;
     return this.clientesFiltrados.slice(start, start + this.itemsPerPage);

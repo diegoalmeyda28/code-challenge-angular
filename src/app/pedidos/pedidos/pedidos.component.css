@@ -25,25 +25,39 @@
   .form-container {
     margin-bottom: 30px;
   }
-  
+
+  form {
+    margin-top: 20px;
+  }
+
   .form-group {
+    display: flex;
+    align-items: center;
     margin-bottom: 15px;
   }
   
-  .form-group select, 
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  .form-group label {
+    width: 150px; /* Ancho de la etiqueta */
+    margin-right: 10px; /* Espacio entre la etiqueta y el input */
+    font-weight: bold;
   }
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
   
-  .form-actions {
+.form-actions {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   }
+  
   
   .form-actions button {
     padding: 10px 15px;
@@ -55,16 +69,16 @@
     transition: background-color 0.3s ease;
   }
   
-  .form-actions button:hover {
-    background-color: #0056b3;
-  }
-  
   .form-actions button[type="button"] {
     background-color: #f44336;
   }
   
   .form-actions button[type="button"]:hover {
     background-color: #d32f2f;
+  }
+  
+  .form-actions button:hover {
+    background-color: #0056b3;
   }
   
   /* Filtro */

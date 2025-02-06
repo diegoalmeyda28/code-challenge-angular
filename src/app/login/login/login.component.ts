@@ -20,10 +20,10 @@ export class LoginComponent {
     const validPassword = '123456';
 
     if (this.email === validUser && this.password === validPassword) {
-      localStorage.setItem('user', this.email);  // Si es correcto, guardar en LocalStorage
-      this.router.navigate(['/productos']);  // Redirigir a productos
+      localStorage.setItem('user', this.email); 
+      this.router.navigate(['/productos']); 
     } else {
-      this.errorMessage = 'Credenciales incorrectas';  // Si es incorrecto, mostrar mensaje
+      this.errorMessage = 'Credenciales incorrectas';
     }
   }
   

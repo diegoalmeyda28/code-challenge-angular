@@ -17,10 +17,12 @@ interface Product {
 export class ProductsComponent {
   products: Product[] = [];
   categories: string[] = ['Electrónica', 'Ropa', 'Hogar'];
-  filteredCategory: string = '';  // Filtrado por categoría
+  filteredCategory: string = '';  
   sortedAscending: boolean = true;
-  
-  // Producto nuevo a agregar
+  searchTerm: string = '';
+
+  productsFiltrados: Product[] = [];
+
   newProduct: Product = {
     name: '',
     description: '',
@@ -30,6 +32,8 @@ export class ProductsComponent {
     featured: false
   };
 
+  editIndex: number | null = null;  
+
   constructor() {}
 
   ngOnInit(): void {
@@ -37,7 +41,6 @@ export class ProductsComponent {
   }
 
   loadProducts() {
-    // Cargar productos desde LocalStorage o una lista predeterminada
     const storedProducts = JSON.parse(localStorage.getItem('products') || '[]');
     if (storedProducts.length) {
       this.products = storedProducts;
@@ -48,6 +51,11 @@ export class ProductsComponent {
         { name: 'Sofa', description: 'Sofa cómodo', price: 300, stock: 2, category: 'Hogar', featured: false },
       ];
     }
+  
+
+    this.productsFiltrados = this.filteredCategory
+      ? this.products.filter(product => product.category === this.filteredCategory)
+      : this.products;  
   }
 
   addProduct(product: Product) {
@@ -58,9 +66,16 @@ export class ProductsComponent {
     }
   }
 
+  setEditProduct(index: number) {
+    this.editIndex = index;  
+    this.newProduct = { ...this.products[index] };  
+  }
+
   editProduct(index: number, updatedProduct: Product) {
     this.products[index] = updatedProduct;
     this.saveProducts();
+    this.resetNewProduct();
+    this.editIndex = null;  
   }
 
   deleteProduct(index: number) {
@@ -76,6 +91,7 @@ export class ProductsComponent {
     const target = event.target as HTMLSelectElement;
     if (target) {
       this.filteredCategory = target.value;
+      this.loadProducts();
     }
   }
 
@@ -99,4 +115,6 @@ export class ProductsComponent {
       featured: false
     };
   }
+
+
 }
